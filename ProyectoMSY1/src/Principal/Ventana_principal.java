@@ -2,6 +2,9 @@ package Principal;
 
 
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -596,9 +599,19 @@ public class Ventana_principal extends javax.swing.JFrame {
         jMenu3.setText("Manuales");
 
         jMenuItem2.setText("Manual Tecnico");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuItem5.setText("Manual De Usuario");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
 
         jMenuBar1.add(jMenu3);
@@ -832,6 +845,24 @@ public class Ventana_principal extends javax.swing.JFrame {
        posicion= jComboBox3.getSelectedIndex();
        jButton7ActionPerformed(evt);
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            File path = new File ("tecnico.pdf");
+            Desktop.getDesktop().open(path);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        try {
+            File path = new File ("usuario.pdf");
+            Desktop.getDesktop().open(path);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
    /************************************************************************************/
     void limpia_comboBox(){
